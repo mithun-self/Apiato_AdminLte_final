@@ -174,13 +174,16 @@ class MerchantProfile extends WebController
 
 
 
-	public function getenv(Request $request){
+
+
+	/*public function getenv(Request $request){
 		$key = $request->input('app_env');
 		$value = $request->input('app_env_value');
 		$this->setenv($key, $value);
 	}
-
-	public function setenv($key, $value){
+*/
+	/*public function setenv($key, $value){
+		\Artisan::call('config:clear');
 		$old=\Config::get('credentials.APP_ENV');
 		$path = base_path('.env');
 		if(is_bool(env($key)))
@@ -193,9 +196,9 @@ class MerchantProfile extends WebController
 	            "$key=".$old, "$key=".$value, file_get_contents($path)
 	        ));
     	}
-    	\Artisan::call('config:clear');
+    	
     	//\Artisan::call('config:cache');
-	}
+	}*/
 
 }
 

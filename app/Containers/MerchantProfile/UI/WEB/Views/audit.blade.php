@@ -55,8 +55,8 @@
          $(function() {
                $('#example').DataTable({
                ajax: '{{ url('/audit/list') }}',
-               "bPaginate":true,
-               "iDisplayLength": 5,
+               //"bPaginate":true,
+               //"iDisplayLength": 5,
                columns: [
                         { data: 'user_id', name: 'user_id' },
                         { data: 'event', name: 'event' },

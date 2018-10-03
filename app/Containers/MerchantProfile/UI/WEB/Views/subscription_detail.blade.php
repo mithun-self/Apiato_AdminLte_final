@@ -38,6 +38,9 @@ span {
 li {
     list-style-type: none;
 }
+.content {
+    display: flow-root;
+} 
 </style>
 @stop
 

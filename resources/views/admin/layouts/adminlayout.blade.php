@@ -72,6 +72,7 @@
   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet">--}}
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -221,7 +222,7 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Log Viewer</span>
+            <i class="fa fa-th-list"></i> <span>Log Viewer</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -233,6 +234,7 @@
         </li>
 
         <li><a data-active="17" href="/audits"><i class="fas fa-clipboard-list"></i> <span>Audit</span></a></li>
+        <li><a data-active="18" href="/enveditor"><i class="fa fa-cogs"></i> <span>Env Edit</span></a></li>
 
       </ul>
     </section>
@@ -346,6 +348,7 @@
         Chart.defaults.global.scaleFontFamily = "'Source Sans Pro'";
         Chart.defaults.global.animationEasing = "easeOutQuart";
     </script>
+
 
 <script>
 $('ul li a').click(function() {

@@ -39,6 +39,10 @@ span {
 li {
     list-style-type: none;
 }
+.content {
+    display: flow-root;
+}
+
 </style>
 @stop
 
@@ -114,7 +118,7 @@ li {
         @include('admin.layouts.customer_details.events_customer')
       </div>
     </div>
-    <form action="/env">  
+    {{--<form action="/env">  
       APP_ENV<br>
       <input type="text" name="app_env" value="APP_ENV">
       <br>
@@ -122,7 +126,7 @@ li {
       <input type="text" value="{{$old}}" name="app_env_value">
       <br><br>
       <input type="submit" value="Submit">
-    </form>
+    </form>--}}
   </div><!-- row -->
 </div><!-- container -->
 <script>

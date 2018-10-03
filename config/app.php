@@ -165,6 +165,7 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
+        Brotzka\DotenvEditor\DotenvEditorServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -223,6 +224,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'DotenvEditor' => Brotzka\DotenvEditor\DotenvEditorFacade::class,
         // NOTE: all packages aliases must be registered inside their containers service providers
     ],
 
