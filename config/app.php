@@ -166,6 +166,7 @@ return [
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
         Brotzka\DotenvEditor\DotenvEditorServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
 
         /*
          * Application Service Providers...
