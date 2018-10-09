@@ -11,6 +11,8 @@ use App\Containers\Fee\UI\WEB\Requests\StoreFeeRequest;
 use App\Containers\Fee\UI\WEB\Requests\EditFeeRequest;
 use App\Ship\Parents\Controllers\WebController;
 use Apiato\Core\Foundation\Facades\Apiato;
+use Illuminate\Http\Request;
+use App\Containers\Fee\Notifications\SomethingHappenedNotification;
 
 /**
  * Class Controller
@@ -89,6 +91,7 @@ class Controller extends WebController
     public function update(UpdateFeeRequest $request)
     {
         $fee = Apiato::call('Fee@UpdateFeeAction', [$request]);
+        \Notification::send($fee, new SomethingHappenedNotification('Fee Updated apiato'));
         return $fee;
         // ..
     }
@@ -103,5 +106,22 @@ class Controller extends WebController
          $result = Apiato::call('Fee@DeleteFeeAction', [$request]);
          return $result;
          // ..
+    }
+
+    public function checknotification() {
+        return View('fee::notification');
+    }
+
+    public function testwebhook(Request $request){
+
+        $user = $request->user();
+
+        $user->notify(new SomethingHappenedNotification('Fee Created'));
+
+        //\Notification::send($user, new SomethingHappenedNotification('Fee Created apiato'));
+
+        return redirect()
+            ->back()
+            ->with('status','You will be notified by webhook');
     }
 }

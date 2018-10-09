@@ -3,11 +3,15 @@
 namespace App\Containers\Fee\Models;
 
 use App\Ship\Parents\Models\Model;
+use Illuminate\Notifications\Notifiable;
+use App\WebhookNotifiable;
 //use OwenIt\Auditing\Contracts\Auditable;
 
 class Fee extends Model
 {
     //use \OwenIt\Auditing\Auditable;
+
+    use Notifiable, WebhookNotifiable;
     
     protected $table = "fees"; 
     protected $fillable = [
