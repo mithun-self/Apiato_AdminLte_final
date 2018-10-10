@@ -119,26 +119,7 @@
                   <th></th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <td><a class="green" href="/customer/customer-details/">4xjMNKVMnpVnDpAP</a></td>
-                  <td>Siba Prasad Hota
-                  </td>
-                  <td>prasad2@lemonpeak.com</td>
-                  <td>Description</td>
-                  <td>1111 12/2020</td>
-                  <td><a class="green" href="#" data-toggle="modal" data-target="#charge_modal">Charge</a></td>
-                </tr>
-                <tr>
-                  <td><a class="green" href="/customer/customer-details/">4DPpKjVKj4VnMNxA</a></td>
-                  <td>Ankit Kocher
-                  </td>
-                  <td>anky@anky.com</td>
-                  <td>  sept 7</td>
-                  <td>1111 11/2022</td>
-                  <td><a class="green" href="#" data-toggle="modal" data-target="#charge_modal">Charge</a></td>
-                </tr>
-              </tbody>
+                
             </table>
             </div>
             <!-- /.box-body -->
@@ -146,9 +127,34 @@
   </div>
 </div>
 <script>
-  $(function () {
-    $('#example1').DataTable();
-  })
+  $(function() {
+               $('#example1').DataTable({
+               
+                "ajax":{
+                  url: 'https://staging.payarc.net:9000/api/v1/customers',
+                  type: 'GET',
+                  headers: { 'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc5ZTBlYzIwNTdlZWI2ODdiZWE0ODk5YWU5NWU3MGYyNDMzMGYwMDViZDU5ZDA5YTQ2NWM5NjZkYzVjNGRjNGVjMzVhYmE2N2ZjOWY1MmI4In0.eyJhdWQiOiIyIiwianRpIjoiNzllMGVjMjA1N2VlYjY4N2JlYTQ4OTlhZTk1ZTcwZjI0MzMwZjAwNWJkNTlkMDlhNDY1Yzk2NmRjNWM0ZGM0ZWMzNWFiYTY3ZmM5ZjUyYjgiLCJpYXQiOjE1MzkxNjY3NTQsIm5iZiI6MTUzOTE2Njc1NCwiZXhwIjoxODU0NTI2NzU0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.KQXUeJK-jyZVkhZNm3mJuTd5r2trC307Px3Rn9uSmADuzyLPNx-yPLcBGTCXQ57alNP4wUCqZaBGJYkl-C4hk6wTvxRuYeCC0uc-GyROTmUFNq0sd8qmFEa3Sqn6nuyEWrgcCUShEJvtB6hU4PJQ_82Z0Pz5IORd-CxBUmg8KhNcxFdBm3fq9cCocB9kKJE22be6LWL7RlL8p9b-SSCIclt-NBILPj1lby71fMfae2RfwM__-AYipNx4QEHI54J6T6OwTWEaSUAlIwmfAY80yQdFVrwADyoofSWvolL-kvLWGueFWcc9Pkz8vjSoV4tlUXvO5f7PuDzn9dekhfXOTVPAxZAB0DEqdyl0BITjgv9xY_adEv_JBYhSXVwLY-VULG_3wJfP4DhbouU-K5FOFbciYld2NhZ2jocAsX4hdB4GjtyEUv8B_bXsCVUYKppyn7Uj18y97Y9GwSSqZqJ6JEXpxnOIY8m0q1v4YHxmUum7cCYcFVwKSap0FVQAnw34gCZnxWBwWxsOr0tQ6gXoQNd2kvXoKhwP5lTCpqTw6soUbycvpwndUG3UlQnI2ZbK02iJxK9wIZ_AMkJMZI6LfZaY7JRGFFJAzReo_ASic09N1TeHAUjhvmTTksr2OmFPpOIiKiocXKgISPmyP7bxhYCf9njFfEi8ystDZ_Aobig',
+                  'Accept':'application/json' },
+                },
+                columns: [
+                        { data: 'id', name: 'id' },
+                        { data: 'name', name: 'name' },
+                        { data: 'email', name: 'email' },
+                        { data: 'description', name: 'description' },
+                        { data: 'card', "mRender": function(data, type, row) {
+
+                              return data.data[0].last4digit+' '+data.data[0].exp_month+'/'+data.data[0].exp_year;
+                          }
+                        },
+                        { data: 'delete', "mRender": function(data, type, row) {
+                              return '<td><a class="green" href="#" data-toggle="modal" data-target="#charge_modal">Charge</a></td>';
+                              }
+                        }
+                       
+                     ]
+
+            });
+         });
 </script>
 
 @stop
