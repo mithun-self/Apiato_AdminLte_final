@@ -137,7 +137,11 @@
                   'Accept':'application/json' },
                 },
                 columns: [
-                        { data: 'id', name: 'id' },
+                        { data: 'id', "mRender": function(data, type, row) {
+
+                             return '<a class="green" href="/customer/customer-details?id='+row.id+'" >'+row.id+'</a>';
+                          }
+                        },
                         { data: 'name', name: 'name' },
                         { data: 'email', name: 'email' },
                         { data: 'description', name: 'description' },
