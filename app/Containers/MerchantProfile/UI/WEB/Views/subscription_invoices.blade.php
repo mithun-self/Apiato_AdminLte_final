@@ -148,7 +148,7 @@ var yable;
                "order": [],
                "oLanguage": {
                     "sLengthMenu": "Show _MENU_ entries",
-                    "sLoadingRecords" : '<span style="width:100%;"><img src="http://www.snacklocal.com/images/ajaxload.gif"></span>'
+                    "processing": "<img src='img/loading.gif'> Loading..."
 
                 },
                 "bFilter": false,

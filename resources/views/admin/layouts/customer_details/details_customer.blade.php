@@ -109,10 +109,10 @@ li.list-group-item {
 					 </div>
 					 <div class="col-md-6">
 						<ul class="list-group">
-						    <li class="list-group-item">4ADjPnVDNpVpMNKx</li>
-						    <li class="list-group-item">08/08/2018 01:37</li>
-						    <li class="list-group-item">eb@eb.com</li>
-						    <li class="list-group-item">----</li>
+						    <li class="list-group-item"><span class="id"></span></li>
+						    <li class="list-group-item"><span class="created"></span></li>
+						    <li class="list-group-item"><span class="email"></span></li>
+						    <li class="list-group-item"><span class="description"></span></li>
 					  	</ul>
 					 </div>
 			  	</div>
@@ -128,11 +128,44 @@ li.list-group-item {
 					</div>
 					<div class="col-md-6">
 						<ul class="list-group">
-					    	<li class="list-group-item">----</li>
-					    	<li class="list-group-item">----</li>
+					    	<li class="list-group-item"><span class="invoices_to"></span></li>
+					    	<li class="list-group-item"><span class="address"></span></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 </div>
+
+<script>
+
+$(document).ready(function(){
+
+
+$.urlParam = function(name){
+  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  return results[1] || 0;
+}
+
+$.ajax
+  ({
+    type: "GET",
+    url: "https://staging.payarc.net:9000/api/v1/customers/"+$.urlParam('id'),
+    headers: { 'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc5ZTBlYzIwNTdlZWI2ODdiZWE0ODk5YWU5NWU3MGYyNDMzMGYwMDViZDU5ZDA5YTQ2NWM5NjZkYzVjNGRjNGVjMzVhYmE2N2ZjOWY1MmI4In0.eyJhdWQiOiIyIiwianRpIjoiNzllMGVjMjA1N2VlYjY4N2JlYTQ4OTlhZTk1ZTcwZjI0MzMwZjAwNWJkNTlkMDlhNDY1Yzk2NmRjNWM0ZGM0ZWMzNWFiYTY3ZmM5ZjUyYjgiLCJpYXQiOjE1MzkxNjY3NTQsIm5iZiI6MTUzOTE2Njc1NCwiZXhwIjoxODU0NTI2NzU0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.KQXUeJK-jyZVkhZNm3mJuTd5r2trC307Px3Rn9uSmADuzyLPNx-yPLcBGTCXQ57alNP4wUCqZaBGJYkl-C4hk6wTvxRuYeCC0uc-GyROTmUFNq0sd8qmFEa3Sqn6nuyEWrgcCUShEJvtB6hU4PJQ_82Z0Pz5IORd-CxBUmg8KhNcxFdBm3fq9cCocB9kKJE22be6LWL7RlL8p9b-SSCIclt-NBILPj1lby71fMfae2RfwM__-AYipNx4QEHI54J6T6OwTWEaSUAlIwmfAY80yQdFVrwADyoofSWvolL-kvLWGueFWcc9Pkz8vjSoV4tlUXvO5f7PuDzn9dekhfXOTVPAxZAB0DEqdyl0BITjgv9xY_adEv_JBYhSXVwLY-VULG_3wJfP4DhbouU-K5FOFbciYld2NhZ2jocAsX4hdB4GjtyEUv8B_bXsCVUYKppyn7Uj18y97Y9GwSSqZqJ6JEXpxnOIY8m0q1v4YHxmUum7cCYcFVwKSap0FVQAnw34gCZnxWBwWxsOr0tQ6gXoQNd2kvXoKhwP5lTCpqTw6soUbycvpwndUG3UlQnI2ZbK02iJxK9wIZ_AMkJMZI6LfZaY7JRGFFJAzReo_ASic09N1TeHAUjhvmTTksr2OmFPpOIiKiocXKgISPmyP7bxhYCf9njFfEi8ystDZ_Aobig','Accept':'application/json' },
+    success: function(data)
+    {
+
+       $("span.id").html(data.data.id);
+       $("span.created").html(data.data.created_at);
+       $("span.email").html(data.data.email);
+       $("span.description").html(data.data.description);
+       $("span.invoices_to").html(data.data.email);
+       $("span.address").html(data.data.address_1+'</br>'+data.data.address_2+'</br>'+data.data.city);
+       //$("span.address").text(data.data.address_2);
+       //$("span.address").text(data.data.city);
+    }
+  });
+
+
+});
+</script>
