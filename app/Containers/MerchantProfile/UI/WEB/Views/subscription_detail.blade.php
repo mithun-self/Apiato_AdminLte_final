@@ -1,7 +1,7 @@
 @extends('admin.layouts.adminlayout')
 
 @section('page-header')
-    Subscription Details <small>eb@eb.com l0xogPjVgXjVRrAX</small>
+    Subscription Details <small><span class="head_details"></span></small>
 @stop
 
 @section('css')
@@ -105,7 +105,34 @@ li {
   </div><!-- row -->
 </div><!-- container -->
 <script>
+  $(document).ready(function(){
 
+
+$.urlParam = function(name){
+  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  return results[1] || 0;
+}
+
+$.ajax
+  ({
+    type: "GET",
+    url: "https://staging.payarc.net:9000/api/v1/subscriptions/"+$.urlParam('id')+'?include=customer',
+    headers: { 'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjBiZmIzNzFmYTBhNGVmMjNiNWMyOTIxMmM3ZGI5MWZjNWRjYWUzYjM0ZGY3MjYxMjAxZGNkY2VlY2EyMmQ0MTE1Y2M3ODkxMDUyYWY3OWJiIn0.eyJhdWQiOiIyIiwianRpIjoiMGJmYjM3MWZhMGE0ZWYyM2I1YzI5MjEyYzdkYjkxZmM1ZGNhZTNiMzRkZjcyNjEyMDFkY2RjZWVjYTIyZDQxMTVjYzc4OTEwNTJhZjc5YmIiLCJpYXQiOjE1MzkzMjU3ODIsIm5iZiI6MTUzOTMyNTc4MiwiZXhwIjoxODU0Njg1NzgyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.svZMzQP_0fS-JIiAY1ZuFrruQih8ifuR0MIy476VF4XooGDTTJ4P0TgdzgMbrocpdsmQl3yZQEooW-gQFxwcJXAEzt_nt8LA0kNmF-KzPnIykYoEGcAjfwqf3n3EkgxOa0oqu9xSTnsdmQAckPFy3j0ZyRYfy6or8c0Uaz5aV2ajHaR7mlZ_ua4kIG-GBH1Sl08FJAz4BYY6_EyDeP4GnGq045MaToODBBT_k3Woh9YQCdHLHzpZNAMzcXnNkEYhL-tLmxlAUdyEeUmNmf6LzsBcffG_QpyOkyrfbwdyBBXLXjfwkQr7JsiZy4a7hA6SZeGaa7t5CnxuduIzWfrvCv5Zp3j_q9K172QvwuJtByTQAqT-dPkf_4ZFqzF6-cwVGyXtyuIJfUMSFGU-HHj4GD-hKiJoEXC-PrFqHSOyuFw6_dCByf0qqK0z4TaU2f1v6-ikXwpqdkeJXHJeK-WtNz8QyPyGfitbGH5SOsnAOD6etQAJg-kwfKZJLrHhmo229pj1bMjHvMVemkV1V4EveVko-bRmdfBNLOwgFt3Z5vmLw39LGCnNLpD-ckJGtgnmxEhEsuq9Qai7mb8VDNS23DvVcO374t5CtHhh28RXJm-I-7VJhOp-mSLkvsA7M8rQBAQ7eOUMY71WcnTpDWS5L0HvEP_WdoxRW8IlegXwELU','Accept':'application/json' },
+    success: function(data)
+    {
+      $.each(data, function(key, value) {
+        //$.each(this.card, function(k, v) {
+         // $.each(this, function(k, v) {
+            //$("div.all_card").append('<div class="col-md-12 card_body"><div class="col-md-6">'+v.last4digit + ' '+ v.exp_month +"/"+v.exp_year +'</div><div class="col-md-6" style="text-align: right;"><i class="fa fa-trash"><span>Delete</span></i><i class="fa fa-edit"><span>Edit</span></i></div></div>');
+            $("span.head_details").html(value.id);
+         // });
+       //});
+      }); 
+    }
+  });
+
+
+});
 </script>
 
 @stop

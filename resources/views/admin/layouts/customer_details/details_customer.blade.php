@@ -2,7 +2,7 @@
 .float{
 	float: right !important;
 }
-span {
+span.title {
     font-size: 14px;
     font-weight: bolder;
 }
@@ -88,23 +88,23 @@ li.list-group-item {
 		<div class="panel-heading">
 			<div class="row">
 					<div class="col-md-6">
-						<span>Details</span>
+						<span class="title">Details</span>
 					</div>
 					<div class="col-md-6" style="text-align: right;">
-						<a href="#" data-toggle="modal" data-target="#update_modal"><i class="fa fa-edit"><span>Update details</span></i></a>
+						<a href="#" data-toggle="modal" data-target="#update_modal"><i class="fa fa-edit"><span class="title">Update details</span></i></a>
 					</div>
 			</div>
 		</div>
 		<div class="panel-body">
 			<div class="col-md-6">
-				<span>Account information</span>
+				<span class="title">Account information</span>
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-group">
-						    <li class="list-group-item"><span>ID</span></li>
-						    <li class="list-group-item"><span>Created</span></li>
-						    <li class="list-group-item"><span>Email</span></li>
-						    <li class="list-group-item"><span>Description</span></li>
+						    <li class="list-group-item"><span class="title">ID</span></li>
+						    <li class="list-group-item"><span class="title">Created</span></li>
+						    <li class="list-group-item"><span class="title">Email</span></li>
+						    <li class="list-group-item"><span class="title">Description</span></li>
 					  	</ul>
 					 </div>
 					 <div class="col-md-6">
@@ -118,12 +118,12 @@ li.list-group-item {
 			  	</div>
 			</div>
 			<div class="col-md-6">
-				<span>Invoicing settings</span>
+				<span class="title">Invoicing settings</span>
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="list-group">
-					    	<li class="list-group-item"><span>Send invoices to</span></li>
-					    	<li class="list-group-item"><span>Address</span></li>
+					    	<li class="list-group-item"><span class="title">Send invoices to</span></li>
+					    	<li class="list-group-item"><span class="title">Address</span></li>
 						</ul>
 					</div>
 					<div class="col-md-6">

@@ -2,7 +2,7 @@
 .float{
 	float: right !important;
 }
-span {
+span.title {
     font-size: 14px;
     font-weight: bolder;
 }
@@ -99,7 +99,7 @@ span {
 		<div class="panel-heading">
 			<div class="row">
 					<div class="col-md-6">
-						<span>Cards</span>
+						<span class="title">Cards</span>
 					</div>
 					<div class="col-md-6" style="text-align: right;">
 						<a href="#" data-toggle="modal" data-target="#card_modal"><i class="fa fa-edit"><span>Default Card</span></i></a>

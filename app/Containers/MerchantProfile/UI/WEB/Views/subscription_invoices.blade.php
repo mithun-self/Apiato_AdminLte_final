@@ -164,7 +164,7 @@ var yable;
                         
                         { data: 'total', "mRender": function(data, type, row) {
 
-                             return '<a class="green" href="/subscription/coupon-details?id='+row.id+'" >$'+row.total/100+'.00 USD</a>';
+                             return '<a class="green" href="/subscription/invoice-details?id='+row.id+'" >$'+row.total/100+'.00 USD</a>';
                           }
                         },
                         { data: 'paid', "mRender": function(data, type, row) {

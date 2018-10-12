@@ -1,7 +1,7 @@
 @extends('admin.layouts.adminlayout')
 
 @section('page-header')
-    Plan <small>1000</small>
+    Plan <small>Details</small>
 @stop
 
 @section('css')

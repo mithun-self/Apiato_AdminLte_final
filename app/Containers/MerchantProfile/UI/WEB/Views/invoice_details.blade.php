@@ -1,7 +1,7 @@
 @extends('admin.layouts.adminlayout')
 
 @section('page-header')
-    Invoice details <small>XB8W-0006 for $1,000.00 USD</small>
+    Invoice details <small></small>
 @stop
 
 @section('css')
@@ -37,6 +37,9 @@ span {
 }
 li {
     list-style-type: none;
+}
+.content {
+    display: flow-root;
 }
 </style>
 @stop

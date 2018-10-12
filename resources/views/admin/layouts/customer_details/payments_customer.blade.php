@@ -3,7 +3,7 @@
 .float{
 	float: right !important;
 }
-span {
+span.title {
     font-size: 14px;
     font-weight: bolder;
 }
@@ -142,7 +142,7 @@ $.ajax
       $.each(data, function(key, value) {
         $.each(this.charge, function(k, v) {
           $.each(this, function(k, v) {
-            $("div.data-body").append('<div class="row"><div class="col-md-3">$'+v.amount/100+'.00 USD</div><div class="col-md-3">'+v.id+'</div><div class="col-md-3">'+value.email+'</div><div class="col-md-3">'+v.created_at+'</div></div>');
+            $("div.data-body").append('<div class="row"><div class="col-md-3"><a href="/payment/payment-details?id='+value.id+'">$'+v.amount/100+'.00 USD</a></div><div class="col-md-3">'+v.id+'</div><div class="col-md-3">'+value.email+'</div><div class="col-md-3">'+v.created_at+'</div></div>');
           });
        });
       }); 

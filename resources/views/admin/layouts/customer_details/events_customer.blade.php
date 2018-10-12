@@ -3,7 +3,7 @@
 .float{
 	float: right !important;
 }
-span {
+span.title {
     font-size: 14px;
     font-weight: bolder;
 }
